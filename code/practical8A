@@ -1,0 +1,105 @@
+class Recursion{
+//pattern1
+	void displaypattern1(int ln,int size)
+	{
+	  if(ln<=2*size+1)
+	  {
+	    if(ln<=(2*size+1)/2+1)
+	     {
+	       symbols1(ln,1);
+	     }
+	     else
+	     {
+	       symbols2(ln,size,1);
+	     }
+	     System.out.println();
+	     displaypattern1(ln+1,size);
+	   }
+	  } 
+	  void symbols1(int ln,int sy)
+	  {
+	    if(sy<ln+1)
+	     {
+	       System.out.print("*");
+	       symbols1(ln,sy+1);
+	     }
+	  }
+	  void symbols2(int ln,int size,int sy)
+	  {
+	    if(sy<=2*size+2-ln)
+	     {
+	       System.out.print("*");
+	       symbols2(ln,size,sy+1);
+	     }
+	   }
+//pattern 2
+void displaypattern2(int ln,int size)
+	{
+	  if(ln<=2*size+1)
+	  {
+	    if(ln<(2*size+1)/2+1)
+	    {
+	      spaces1(ln,size,1);
+	      stars(ln,1);
+	    }
+	  else if(ln==(2*size+1)/2+1)
+	  {
+	    plus(size,1);
+	  }
+	  else
+	  {
+	    spaces2(ln,size,1);
+	    slashes(size,1,ln);
+	  }
+	  System.out.println();
+	  displaypattern2(ln+1,size);
+	 }
+       }
+	void spaces1(int ln,int size,int spaces)
+	{
+	   if(spaces<=size-ln+1)
+	   {
+	     System.out.print(" ");
+	     spaces1(ln,size,spaces+1);
+	   }
+	}
+	void stars(int ln,int stars)
+        {
+          if(stars<ln+1)
+          {
+            System.out.print("*");
+            stars(ln,stars+1);
+          }
+        }
+        void plus(int size,int plus)
+        {
+          if(plus<=size+1)
+          {
+            System.out.print("+");
+            plus(size,plus+1);
+          }
+        }
+        void spaces2(int ln,int size,int spaces)
+        {
+          if(spaces<=ln-size-1)
+          {
+            System.out.print(" ");
+            spaces2(ln,size,spaces+1);
+          }
+        }
+        void slashes(int size,int slashes,int ln)
+        {
+          if(slashes<=2*size+2-ln)
+          {
+            System.out.print("/");
+            slashes(size,slashes+1,ln);
+          }
+        }
+ public static void main(String[] args)
+ {
+   Recursion1 p1=new Recursion1();
+   p1.displaypattern1(1,3);
+   p1.displaypattern2(1,3);
+ }
+}	   
+	            
